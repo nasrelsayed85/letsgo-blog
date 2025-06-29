@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة المتجر الإلكتروني</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .category-chip:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .product-overlay {
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- شريط التنقل العلوي -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- الشعار -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-shopping-bag text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-indigo-600">متجرنا</span>
+                </div>
+                
+                <!-- روابط التنقل -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="https://letsgo.myeasyorders.com/" class="text-gray-700 hover:text-indigo-600 font-medium">الرئيسية</a>
+                    <a href="https://letsgo.myeasyorders.com/" class="text-gray-700 hover:text-indigo-600 font-medium">المتجر</a>
+                    <a href="#" class="text-indigo-600 font-medium">المدونة</a>
+                    <a href="https://letsgo.myeasyorders.com/about" class="text-gray-700 hover:text-indigo-600 font-medium">من نحن</a>
+                    <a href="https://letsgo.myeasyorders.com/contact" class="text-gray-700 hover:text-indigo-600 font-medium">اتصل بنا</a>
+                </nav>
+                
+                <!-- أيقونات المستخدم والسلة -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-indigo-600">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-indigo-600 relative">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="absolute -top-1 -right-1 bg-indigo-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-indigo-600">
+                        <i class="fas fa-user-circle text-lg"></i>
+                    </button>
+                    <button class="md:hidden p-2 text-gray-600 hover:text-indigo-600">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero-gradient text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">مدونة Let's Go</h1>
+                <p class="text-lg md:text-xl mb-8 opacity-90">اكتشف أحدث المقالات والنصائح حول منتجاتنا وعروضنا الحصرية في الإمارات</p>
+                <div class="relative max-w-xl mx-auto">
+                    <input type="text" placeholder="ابحث في المدونة..." class="search-input w-full py-3 px-5 rounded-full text-gray-800 focus:ring-2 focus:ring-indigo-300">
+                    <button class="absolute left-3 top-1/2 transform -translate-y-1/2 bg-indigo-600 text-white p-2 rounded-full">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- المقالات -->
+            <div class="lg:w-2/3">
+                <h2 class="text-2xl font-bold mb-8 text-gray-800 border-b pb-2">أحدث المقالات</h2>
+                
+                <!-- مقال مميز -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="مقال مميز" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 md:w-1/2">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full">جديد</span>
+                                <span class="text-gray-500 text-sm mr-3">منذ يومين</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-800">دليل شامل لاختيار أفضل المنتجات لعام 2023</h3>
+                            <p class="text-gray-600 mb-4">في هذا المقال نستعرض أهم النصائح والحيل لاختيار المنتجات التي تناسب احتياجاتك وميزانيتك مع التركيز على الجودة والسعر المناسب.</p>
+                            <div class="flex items-center justify-between">
+                                <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800">قراءة المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+                                <div class="flex items-center">
+                                    <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="كاتب المقال" class="w-8 h-8 rounded-full mr-2">
+                                    <span class="text-sm text-gray-600">سارة أحمد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قائمة المقالات -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- مقال 1 -->
+                    <div class="post-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1547586696-ea22babc0bda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="مقال 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded-full">تكنولوجيا</span>
+                                <span class="text-gray-500 text-sm mr-3">منذ أسبوع</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-gray-800">أحدث التقنيات في أجهزتنا الجديدة</h3>
+                            <p class="text-gray-600 text-sm mb-4">اكتشف الميزات الرائعة التي تقدمها أجهزتنا الجديدة وكيف يمكنها تحسين تجربة الاستخدام اليومية.</p>
+                            <a href="#" class="text-indigo-600 text-sm font-medium hover:text-indigo-800">قراءة المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- مقال 2 -->
+                    <div class="post-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="مقال 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded-full">عروض</span>
+                                <span class="text-gray-500 text-sm mr-3">منذ 3 أيام</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-gray-800">خصومات تصل إلى 50% على مجموعة المنتجات الشتوية</h3>
+                            <p class="text-gray-600 text-sm mb-4">لا تفوت فرصة الحصول على أفضل المنتجات بأسعار مخفضة خلال موسم التخفيضات الشتوية.</p>
+                            <a href="#" class="text-indigo-600 text-sm font-medium hover:text-indigo-800">قراءة المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- مقال 3 -->
+                    <div class="post-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="مقال 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-full">نصائح</span>
+                                <span class="text-gray-500 text-sm mr-3">منذ أسبوعين</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-gray-800">كيف تحافظ على منتجاتك لأطول فترة ممكنة</h3>
+                            <p class="text-gray-600 text-sm mb-4">تعلم أفضل الممارسات للحفاظ على جودة منتجاتك وضمان استمراريتها لفترة أطول.</p>
+                            <a href="#" class="text-indigo-600 text-sm font-medium hover:text-indigo-800">قراءة المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- مقال 4 -->
+                    <div class="post-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="مقال 4" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded-full">تجارب</span>
+                                <span class="text-gray-500 text-sm mr-3">منذ شهر</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-gray-800">تجربة عملائنا مع منتجاتنا: آراء حقيقية</h3>
+                            <p class="text-gray-600 text-sm mb-4">استمع إلى آراء عملائنا السعداء وتجاربهم المميزة مع منتجاتنا المختلفة.</p>
+                            <a href="#" class="text-indigo-600 text-sm font-medium hover:text-indigo-800">قراءة المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ترقيم الصفحات -->
+                <div class="flex justify-center mt-12">
+                    <nav class="flex items-center space-x-2">
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-600 text-white">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 font-medium">1</button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-indigo-100 text-gray-700">2</button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-indigo-100 text-gray-700">3</button>
+                        <span class="px-2">...</span>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-indigo-100 text-gray-700">8</button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-indigo-100 text-gray-700">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- الشريط الجانبي -->
+            <div class="lg:w-1/3 space-y-8">
+                <!-- عن المتجر -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">عن متجرنا</h3>
+                    <p class="text-gray-600 mb-4">نقدم لكم أفضل المنتجات بأعلى جودة وأسعار تنافسية مع ضمان استرجاع خلال 14 يوم.</p>
+                    <a href="https://letsgo.myeasyorders.com/" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        تصفح متجر Let's Go <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- التصنيفات -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">تصنيفات المدونة</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="category-chip block px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-600 hover:text-white transition duration-200">كل المقالات</a>
+                        <a href="#" class="category-chip block px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-600 hover:text-white transition duration-200">عروض وتخفيضات</a>
+                        <a href="#" class="category-chip block px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-600 hover:text-white transition duration-200">نصائح واستخدامات</a>
+                        <a href="#" class="category-chip block px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-600 hover:text-white transition duration-200">مراجعات المنتجات</a>
+                        <a href="#" class="category-chip block px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-600 hover:text-white transition duration-200">أخبار التكنولوجيا</a>
+                    </div>
+                </div>
+                
+                <!-- منتجات مميزة -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">منتجات مميزة</h3>
+                    <div class="space-y-4">
+                        <!-- منتج 1 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="منتج 1" class="w-20 h-20 object-cover rounded-lg">
+                                <div class="product-overlay absolute inset-0 bg-black bg-opacity-20 rounded-lg flex items-center justify-center">
+                                    <button class="bg-indigo-600 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">أجهزة Let's Go الذكية</h4>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm mr-2">(48)</span>
+                                </div>
+                                <p class="text-indigo-600 font-bold mt-1">249 ر.س</p>
+                            </div>
+                        </div>
+                        
+                        <!-- منتج 2 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="منتج 2" class="w-20 h-20 object-cover rounded-lg">
+                                <div class="product-overlay absolute inset-0 bg-black bg-opacity-20 rounded-lg flex items-center justify-center">
+                                    <button class="bg-indigo-600 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">ملحقات Let's Go</h4>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm mr-2">(36)</span>
+                                </div>
+                                <p class="text-indigo-600 font-bold mt-1">179 ر.س</p>
+                            </div>
+                        </div>
+                        
+                        <!-- منتج 3 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="منتج 3" class="w-20 h-20 object-cover rounded-lg">
+                                <div class="product-overlay absolute inset-0 bg-black bg-opacity-20 rounded-lg flex items-center justify-center">
+                                    <button class="bg-indigo-600 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">عروض Let's Go الحصرية</h4>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm mr-2">(124)</span>
+                                </div>
+                                <p class="text-indigo-600 font-bold mt-1">1,899 ر.س</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="mt-4 inline-block text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        عرض جميع المنتجات <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- النشرة البريدية -->
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">النشرة البريدية</h3>
+                    <p class="text-gray-600 mb-4">اشترك في نشرتنا البريدية لتصلك أحدث العروض والمقالات مباشرة إلى بريدك الإلكتروني.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="بريدك الإلكتروني" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-200">
+                        <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-200">اشترك الآن</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- معلومات المتجر -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">متجرنا الإلكتروني</h4>
+                    <p class="text-gray-400 mb-4">نقدم لكم أفضل المنتجات بأعلى جودة وخدمة عملاء مميزة على مدار الساعة.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- روابط سريعة -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">الرئيسية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">المتجر</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">المدونة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">من نحن</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <!-- سياسات -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">سياسات المتجر</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">شروط الاستخدام</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">سياسة الإرجاع</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">الشحن والتوصيل</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <!-- معلومات الاتصال -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">اتصل بنا</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-indigo-400"></i>
+                            <span class="text-gray-400">دبي، الإمارات العربية المتحدة</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-indigo-400"></i>
+                            <span class="text-gray-400">+971 4 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-indigo-400"></i>
+                            <span class="text-gray-400">info@store.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-indigo-400"></i>
+                            <span class="text-gray-400">الأحد - الخميس: 9 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- حقوق النشر -->
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500">
+                <p>© 2023 Let's Go. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // كود جافاسكريبت للتفاعل مع المدونة
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثير عند التمرير
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+            
+            // محاكاة البحث
+            const searchBtn = document.querySelector('.hero-gradient button');
+            const searchInput = document.querySelector('.search-input');
+            
+            searchBtn.addEventListener('click', function() {
+                if (searchInput.value.trim() !== '') {
+                    alert('جارٍ البحث عن: ' + searchInput.value);
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+                    alert('جارٍ البحث عن: ' + searchInput.value);
+                }
+            });
+            
+            // تأثيرات عند التحويم على المنتجات
+            const productCards = document.querySelectorAll('.flex.items-center.space-x-4');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.querySelector('img').classList.add('transform', 'scale-105');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.querySelector('img').classList.remove('transform', 'scale-105');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
